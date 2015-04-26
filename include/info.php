@@ -1,0 +1,1 @@
+<?php $server_name = "t"; $server_ip = "tt"; $server_port = "t"; ?>

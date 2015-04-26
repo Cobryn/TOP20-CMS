@@ -1,0 +1,1 @@
+<?php $database_host = "test"; $database_database = "test"; $database_user = "test"; $database_password = "test" ?>

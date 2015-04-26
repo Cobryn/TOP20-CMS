@@ -1,1 +1,3 @@
-En développement.
+<?php 
+include('include/setting.php');
+?>
