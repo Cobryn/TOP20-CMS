@@ -1,5 +1,5 @@
-Avancement du CMS :
-10%
+Ce CMS est développé par Virgil 'Cobryn/TehZaa' CAZAUBON.
+Afin de respecter le travail de l'auteur, merci de laisser le message 'Développer par Cobryn/TehZaa'.
 
-Etat : 
-- Installation des fichiers PHP d'installation automatique
+Ce CMS est OpenSouce.
+Bonne utilisation.
