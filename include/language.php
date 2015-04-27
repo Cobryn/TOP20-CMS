@@ -13,4 +13,11 @@ $install_database = '- Base de donnée';
 $install_1 = 'En cas d\'erreur de saisie ou autre menant au dysfonctionnement du CMS, veuillez modifier directement les informations situé dans le fichier (<b>include/database.php</b>).';
 $install_2 = 'Vous devez choisir la base de donnée de votre serveur, en général <b>arma3life</b>.';
 $install_3 = 'Supprimer le dossier INSTALL après l\'installation.';
+
+// Classement
+$top_classement = 'Classement';
+$top_playername = 'Nom du joueur';
+$top_moneyout = 'Argent en poche';
+$top_moneybank = 'Argent en banque';
+$top_type = 'Type';
 ?>
