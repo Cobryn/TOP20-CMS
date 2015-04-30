@@ -52,6 +52,9 @@ define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME
 		<head>
 			<meta charset="utf-8" type="text/html">
 			<title>TOP20 - <?php echo $NomServeur; ?></title>
+			<script type="text/javascript"
+				src="http://code.jquery.com/jquery-1.10.1.min.js">
+			</script>
 			<script>
 				function refresh() {
 				$.ajax({
@@ -110,53 +113,55 @@ define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME
 			</style>
 		</head>
 		<body>
-			<center>
-			<br><br>
-				<table>
-					<tr>
-						<th><?php echo '<b>'.$Info['Players'].'</b> joueurs sont connectés sur un total de <b>'.$Info['MaxPlayers'].'</b><br><b>'.$Timer.'ms</b>';?></th>
-					</tr>
-				</table>
-				<br>
-				<table>
-					<tr>
-						<th><?php echo $top_classement; ?></th>
-						<th><?php echo $top_playername; ?></th>
-						<th><?php echo $top_moneyout; ?></th>
-						<th><?php echo $top_moneybank; ?></th>
-						<th><?php echo $top_type; ?></th>
-					</tr>
-				</table>
-				<table>
-				<tbody>
-				<?php 
-				$compteur = 0;
-				?>
+			<div id="refresh">
+				<center>
+				<br><br>
+					<table>
+						<tr>
+							<th><?php echo '<b>'.$Info['Players'].'</b> joueurs sont connectés sur un total de <b>'.$Info['MaxPlayers'].'</b><br><b>'.$Timer.'ms</b>';?></th>
+						</tr>
+					</table>
+					<br>
+					<table>
+						<tr>
+							<th><?php echo $top_classement; ?></th>
+							<th><?php echo $top_playername; ?></th>
+							<th><?php echo $top_moneyout; ?></th>
+							<th><?php echo $top_moneybank; ?></th>
+							<th><?php echo $top_type; ?></th>
+						</tr>
+					</table>
+					<table>
+					<tbody>
 					<?php 
-					$req_selectAllPlayers = $connexion->query('SELECT * FROM players ORDER BY bankacc DESC LIMIT 0,20');
-					$nbr_selectAllPlayers = $req_selectAllPlayers->rowCount();
-						if($nbr_selectAllPlayers > 1 ) {
-							while($selectAllPlayers = $req_selectAllPlayers->fetch()) {
-								$compteur++;
+					$compteur = 0;
 					?>
-					<tr>
-						<td><?php echo '<b>#</b>'.$compteur.''; ?></td>
-						<td><?php echo $selectAllPlayers['name']; ?><td>
-						<td><?php echo ''.number_format($selectAllPlayers['cash']).'$'; ?><td>
-						<td><?php echo ''.number_format($selectAllPlayers['bankacc']).'$'; ?><td>
-						<td><?php if($selectAllPlayers['adminlevel'] > 1) {echo '<div style="color: rgb(223, 0, 0); font-weight: bold;">Admin</div>'; } else {echo '<div style="color: lime; font-weight: bold;">Joueur</div>';} ?><td>
-					</tr>
-					<?php 
+						<?php 
+						$req_selectAllPlayers = $connexion->query('SELECT * FROM players ORDER BY bankacc DESC LIMIT 0,20');
+						$nbr_selectAllPlayers = $req_selectAllPlayers->rowCount();
+							if($nbr_selectAllPlayers > 1 ) {
+								while($selectAllPlayers = $req_selectAllPlayers->fetch()) {
+									$compteur++;
+						?>
+						<tr>
+							<td><?php echo '<b>#</b>'.$compteur.''; ?></td>
+							<td><?php echo $selectAllPlayers['name']; ?><td>
+							<td><?php echo ''.number_format($selectAllPlayers['cash']).'$'; ?><td>
+							<td><?php echo ''.number_format($selectAllPlayers['bankacc']).'$'; ?><td>
+							<td><?php if($selectAllPlayers['adminlevel'] > 1) {echo '<div style="color: rgb(223, 0, 0); font-weight: bold;">Admin</div>'; } else {echo '<div style="color: lime; font-weight: bold;">Joueur</div>';} ?><td>
+						</tr>
+						<?php 
+								}
 							}
-						}
-					?>
-				</tbody>
-			</table>
-			<table>
-				<tr>
-					<th>Développer par Cobryn/TehZaa</th>
-				</tr>
-			</table>
-			</center>
+						?>
+					</tbody>
+				</table>
+				<table>
+					<tr>
+						<th>Développer par Cobryn/TehZaa</th>
+					</tr>
+				</table>
+				</center>
+			</div>
 		</body>
 	</html>
